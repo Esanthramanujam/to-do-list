@@ -1,8 +1,14 @@
+import { lazy, Suspense } from 'react'
 import './App.css'
-import Home from './pages/home'
+
+const Home = lazy(() => import('./pages/home'))
 
 function App() {
-  return <Home />
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Home />
+    </Suspense>
+  )
 }
 
 export default App
